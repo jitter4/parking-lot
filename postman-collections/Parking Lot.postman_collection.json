@@ -1,0 +1,412 @@
+{
+	"info": {
+		"_postman_id": "224a573b-0a6c-4cbe-94e4-e271282316de",
+		"name": "Parking Lot",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Park",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "{{contentType}}",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "{{accept}}",
+						"type": "text"
+					},
+					{
+						"key": "utid",
+						"value": "{{utid}}",
+						"type": "text"
+					},
+					{
+						"key": "jti",
+						"value": "{{jti}}",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "BEARER {{accessToken}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/parking-lot/secure/parking/vehicle/park",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"parking-lot",
+						"secure",
+						"parking",
+						"vehicle",
+						"park"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Unpark",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "{{accept}}",
+						"type": "text"
+					},
+					{
+						"key": "utid",
+						"value": "{{utid}}",
+						"type": "text"
+					},
+					{
+						"key": "jti",
+						"value": "{{jti}}",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "BEARER {{accessToken}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/parking-lot/secure/parking/vehicle/unpark/1234",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"parking-lot",
+						"secure",
+						"parking",
+						"vehicle",
+						"unpark",
+						"1234"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Read By Reg Number",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "{{contentType}}",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "{{accept}}",
+						"type": "text"
+					},
+					{
+						"key": "utid",
+						"value": "{{utid}}",
+						"type": "text"
+					},
+					{
+						"key": "jti",
+						"value": "{{jti}}",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "BEARER {{accessToken}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/{{contextPath}}/secure/parking/vehicle/get/123",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"{{contextPath}}",
+						"secure",
+						"parking",
+						"vehicle",
+						"get",
+						"123"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Read Parked Vehicles By Color",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "{{contentType}}",
+						"type": "text"
+					},
+					{
+						"key": "accept",
+						"value": "{{accept}}",
+						"type": "text"
+					},
+					{
+						"key": "utid",
+						"value": "{{utid}}",
+						"type": "text"
+					},
+					{
+						"key": "jti",
+						"value": "{{jti}}",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "BEARER {{accessToken}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/{{contextPath}}/secure/parking/vehicles?color=Black",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"{{contextPath}}",
+						"secure",
+						"parking",
+						"vehicles"
+					],
+					"query": [
+						{
+							"key": "color",
+							"value": "Black"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Read Parked Vehicles By Type",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "{{accept}}",
+						"type": "text"
+					},
+					{
+						"key": "utid",
+						"value": "{{utid}}",
+						"type": "text"
+					},
+					{
+						"key": "jti",
+						"value": "{{jti}}",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "BEARER {{accessToken}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/{{contextPath}}/secure/parking/vehicles?type=large",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"{{contextPath}}",
+						"secure",
+						"parking",
+						"vehicles"
+					],
+					"query": [
+						{
+							"key": "type",
+							"value": "large"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Read Vehicles By Duration",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "{{contentType}}",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "{{accept}}",
+						"type": "text"
+					},
+					{
+						"key": "utid",
+						"value": "{{utid}}",
+						"type": "text"
+					},
+					{
+						"key": "jti",
+						"value": "{{jti}}",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "BEARER {{accessToken}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/{{contextPath}}/secure/parking/vehicles?inTime=21-02-2019&outTime=24-02-2019&p=0",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"{{contextPath}}",
+						"secure",
+						"parking",
+						"vehicles"
+					],
+					"query": [
+						{
+							"key": "inTime",
+							"value": "21-02-2019"
+						},
+						{
+							"key": "outTime",
+							"value": "24-02-2019"
+						},
+						{
+							"key": "p",
+							"value": "0"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Sign Up",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "username",
+						"value": "admin",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "password",
+						"value": "password",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"USER\",\n  \"username\": \"user\",\n  \"password\": \"password\",\n  \"email\": \"user@parking-lot.com\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/parking-lot/authenticate/signup",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"parking-lot",
+						"authenticate",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\": \"user\",\n\t\"password\": \"password\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/parking-lot/authenticate/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"parking-lot",
+						"authenticate",
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
