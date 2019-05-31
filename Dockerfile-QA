@@ -1,7 +1,7 @@
 FROM openjdk:8-alpine
   
-WORKDIR /transport-service
-ADD target/*.jar .
+WORKDIR /parking-lot
+ADD app-parking-lot/target/*.jar .
 
 COPY autostart-qa.sh /root/autostart-qa.sh
 RUN chmod 755 /root/autostart-qa.sh
