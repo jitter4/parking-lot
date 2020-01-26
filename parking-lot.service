@@ -1,0 +1,16 @@
+[Unit]
+Description=Parking Lot
+After=syslog.target
+After=network.target[Service]
+User=username
+Type=simple
+
+[Service]
+ExecStart=/usr/bin/java -jar /home/shubham/git/parking-lot/app-parking-lot/target/parking-lot.jar
+Restart=always
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=parkinglot
+
+[Install]
+WantedBy=multi-user.target

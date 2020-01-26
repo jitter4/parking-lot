@@ -19,7 +19,7 @@
     </root>
 
     <!-- LOG "com.cars24.dms*" at TRACE level -->
-    <logger name="com.cars24.dms" level="info" additivity="false">
+    <logger name="console-logger" level="info" additivity="false">
         <!-- <appender-ref ref="RollingFile" /> -->
         <appender-ref ref="Console" />
     </logger>

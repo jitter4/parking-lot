@@ -26,8 +26,8 @@ import java.util.List;
 import static springfox.documentation.builders.PathSelectors.regex;
 
 @Configuration
-@EnableSwagger2
-@Profile(value= {"dev", "qa", "stage", "prod"})
+//@EnableSwagger2
+//@Profile(value= {"dev", "qa", "stage", "prod"})
 public class SwaggerConfig implements WebMvcConfigurer {
 
     @Autowired

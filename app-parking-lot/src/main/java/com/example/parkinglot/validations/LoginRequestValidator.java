@@ -1,4 +1,4 @@
-package com.example.parkinglot.validation;
+package com.example.parkinglot.validations;
 
 import com.example.parkinglot.beans.request.dto.LoginRequest;
 import org.springframework.stereotype.Component;
