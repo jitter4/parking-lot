@@ -12,24 +12,24 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.1.5.RELEASE</version>
+		<version>2.5.1</version>
 		<relativePath/>
 	</parent> <!-- lookup parent from repository -->
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<java.version>1.8</java.version>
-		<lombok.version>1.18.4</lombok.version>
-		<sprinfox.swagger2.version>2.9.2</sprinfox.swagger2.version>
-		<springfox.swagger.ui.version>2.9.2</springfox.swagger.ui.version>
+		<java.version>14</java.version>
+		<lombok.version>1.18.20</lombok.version>
+		<sprinfox.swagger2.version>3.0.0</sprinfox.swagger2.version>
+		<springfox.swagger.ui.version>3.0.0</springfox.swagger.ui.version>
 	</properties>
 
 	<dependencies>
         <dependency>
             <groupId>org.flywaydb</groupId>
             <artifactId>flyway-core</artifactId>
-			<version>5.2.0</version>
+			<version>7.10.0</version>
         </dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -51,8 +51,12 @@
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
-			<version>3.8.1</version>
+			<version>3.12.0</version>
 		</dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-validation</artifactId>
+        </dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
@@ -87,7 +91,7 @@
 		<dependency>
 			<groupId>com.typesafe</groupId>
 			<artifactId>config</artifactId>
-			<version>1.3.1</version>
+			<version>1.4.1</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -99,7 +103,24 @@
 			<artifactId>spring-security-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-	</dependencies>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>30.1.1-jre</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.13</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
 
 	<build>
 		<finalName>parking-lot</finalName>
