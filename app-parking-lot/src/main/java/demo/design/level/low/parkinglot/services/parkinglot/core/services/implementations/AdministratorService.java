@@ -1,28 +1,28 @@
 package demo.design.level.low.parkinglot.services.parkinglot.core.services.implementations;
 
-import demo.design.level.low.parkinglot.services.parkinglot.core.entities.actors.ParkingLotAdministrator;
-import demo.design.level.low.parkinglot.services.parkinglot.core.entities.panels.EntrancePanel;
-import demo.design.level.low.parkinglot.services.parkinglot.core.entities.panels.ExitPanel;
-import demo.design.level.low.parkinglot.services.parkinglot.core.entities.actors.ParkingLotAttendent;
 import demo.design.level.low.parkinglot.services.parkinglot.core.entities.ParkingDisplayBoard;
 import demo.design.level.low.parkinglot.services.parkinglot.core.entities.ParkingFloor;
 import demo.design.level.low.parkinglot.services.parkinglot.core.entities.ParkingLot;
 import demo.design.level.low.parkinglot.services.parkinglot.core.entities.ParkingLotStatus;
 import demo.design.level.low.parkinglot.services.parkinglot.core.entities.ParkingSpot;
-import demo.design.level.low.parkinglot.services.parkinglot.core.services.AdministratorService;
-import demo.design.level.low.parkinglot.services.parkinglot.core.services.ParkingLotService;
+import demo.design.level.low.parkinglot.services.parkinglot.core.entities.actors.ParkingLotAdministrator;
+import demo.design.level.low.parkinglot.services.parkinglot.core.entities.actors.ParkingLotAttendent;
+import demo.design.level.low.parkinglot.services.parkinglot.core.entities.panels.EntrancePanel;
+import demo.design.level.low.parkinglot.services.parkinglot.core.entities.panels.ExitPanel;
+import demo.design.level.low.parkinglot.services.parkinglot.core.services.IAdministratorService;
+import demo.design.level.low.parkinglot.services.parkinglot.core.services.IParkingLotService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
 
 @Service
-public class AdministratorServiceImpl implements AdministratorService {
+public class AdministratorService implements IAdministratorService {
 
-    private final ParkingLotService parkingLotService;
+    private final IParkingLotService parkingLotService;
 
     @Autowired
-    public AdministratorServiceImpl(final ParkingLotService parkingLotService) {
+    public AdministratorService(final IParkingLotService parkingLotService) {
         this.parkingLotService = parkingLotService;
     }
 

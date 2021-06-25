@@ -12,7 +12,7 @@ import demo.design.level.low.parkinglot.services.parkinglot.core.entities.Parkin
 
 import java.util.Collection;
 
-public interface AdministratorService {
+public interface IAdministratorService {
 
     Collection<ParkingLot> addParkingLots(Collection<ParkingLot> parkingLots);
     ParkingLot updateParkingLotStatus(ParkingLot parkingLot, ParkingLotStatus status);

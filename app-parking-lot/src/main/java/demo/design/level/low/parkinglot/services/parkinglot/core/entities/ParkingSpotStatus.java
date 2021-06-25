@@ -11,8 +11,8 @@ import javax.persistence.Table;
 @Data
 @NoArgsConstructor
 @Entity
-@Table(name = "parking_ticket_statuses")
-public class ParkingTicketStatus extends BaseAbstractEntity {
+@Table(name = "parking_spot_statuses")
+public class ParkingSpotStatus extends BaseAbstractEntity {
 
     @Column(nullable = false, unique = true)
     private String name;

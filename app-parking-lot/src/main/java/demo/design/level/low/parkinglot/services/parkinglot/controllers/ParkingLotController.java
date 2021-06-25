@@ -3,7 +3,8 @@ package demo.design.level.low.parkinglot.services.parkinglot.controllers;
 import demo.design.level.low.parkinglot.services.parkinglot.core.entities.ParkingLot;
 import demo.design.level.low.parkinglot.services.parkinglot.core.entities.Vehicle;
 import demo.design.level.low.parkinglot.services.parkinglot.core.entities.VehicleType;
-import demo.design.level.low.parkinglot.services.parkinglot.core.services.ParkingLotService;
+import demo.design.level.low.parkinglot.services.parkinglot.core.entities.VehicleTypeParkingSpotCount;
+import demo.design.level.low.parkinglot.services.parkinglot.core.services.IParkingLotService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
@@ -14,22 +15,23 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 import java.util.Optional;
+import java.util.List;
 
 @RestController
 @RequestMapping("/secure/parking")
 public class ParkingLotController {
 
-    private final ParkingLotService parkingLotService;
+    private final IParkingLotService parkingLotService;
 
     @Autowired
-    public ParkingLotController(final ParkingLotService parkingLotService) {
+    public ParkingLotController(final IParkingLotService parkingLotService) {
         this.parkingLotService = parkingLotService;
     }
 
     @PutMapping(value = "/vehicle/park")
     public ResponseEntity<?> park (@RequestBody Vehicle vehicle) {
         try {
-            return new ResponseEntity<>(this.parkingLotService.park(vehicle), HttpStatus.CREATED);
+            return new ResponseEntity<>(this.parkingLotService.park(null, vehicle), HttpStatus.CREATED);
         } catch (Exception e) {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.EXPECTATION_FAILED);
         }

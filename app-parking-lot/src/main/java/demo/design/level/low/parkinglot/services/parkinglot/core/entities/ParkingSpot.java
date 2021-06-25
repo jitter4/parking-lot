@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
@@ -25,17 +26,19 @@ import java.util.Collection;
         })
 })
 public class ParkingSpot extends BaseAbstractEntity {
+
+    @Column(name = "number", nullable = false)
     private int number;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "vehicle_id", referencedColumnName = "id")
     private Vehicle vehicle;
 
-    private boolean isVehicleOnSpots;
+    private boolean isVehicleOnSpot;
 
     @OneToOne
     @JoinColumn(name = "parking_status_id", referencedColumnName = "id")
-    private ParkingStatus parkingStatus;
+    private ParkingSpotStatus parkingSpotStatus;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "parking_spot_type", referencedColumnName = "id")
@@ -49,6 +52,4 @@ public class ParkingSpot extends BaseAbstractEntity {
     @JoinColumn(name = "parking_lot_id", nullable = false)
     private ParkingLot parkingLot;
 
-    @OneToMany(mappedBy = "parkingSpot", fetch = FetchType.LAZY)
-    private Collection<VehicleTypeParkingSpotCount> vehicleTypeParkingSpotCounts;
 }

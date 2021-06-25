@@ -24,7 +24,7 @@ import java.util.Set;
 @Table(name = "parking_floors")
 public class ParkingFloor extends BaseAbstractEntity {
 
-    @Column(nullable = false, unique = true)
+    @Column(name = "number", nullable = false, unique = true)
     private int number;
 
     @OneToMany(mappedBy = "parkingFloor", cascade = CascadeType.ALL, fetch = FetchType.LAZY)

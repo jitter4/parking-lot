@@ -1,5 +1,6 @@
 package demo.design.level.low.parkinglot.services.parkinglot.core.services;
 
+import demo.design.level.low.parkinglot.services.parkinglot.core.entities.VehicleTypeParkingSpotCount;
 import demo.design.level.low.parkinglot.services.parkinglot.core.entities.actors.ParkingLotAdministrator;
 import demo.design.level.low.parkinglot.services.parkinglot.core.entities.panels.EntrancePanel;
 import demo.design.level.low.parkinglot.services.parkinglot.core.entities.panels.ExitPanel;
@@ -17,8 +18,13 @@ import org.springframework.data.domain.PageRequest;
 
 import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 
-public interface ParkingLotService {
+public interface IParkingLotService {
+
+    ParkingTicket park(ParkingLot parkingLot, Vehicle vehicle);
+    Vehicle unPark(ParkingTicket parkingTicket);
+
     ParkingLot addParkingLot(ParkingLot parkingLot);
     Collection<ParkingLot> addParkingLots(Collection<ParkingLot> parkingLots);
     Collection<ParkingFloor> addParkingFloors(ParkingLot parkingLot, Collection<ParkingFloor> parkingFloors);
@@ -33,9 +39,6 @@ public interface ParkingLotService {
     Collection<ParkingLotAdministrator> addParkingLotAdministrators(ParkingLot parkingLot, Collection<ParkingLotAdministrator> parkingLotAdministrators);
 
     ParkingLot updateStatus(ParkingLot parkingLot, ParkingLotStatus parkingLotStatus);
-
-    ParkingTicket park(Vehicle vehicle);
-    Vehicle unPark(ParkingTicket parkingTicket);
 
     Vehicle getVehicleByRegistrationNumber(String registrationNumber);
     Page<Vehicle> getVehiclesByColor(String color, PageRequest pageRequest);

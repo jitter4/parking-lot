@@ -6,6 +6,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+import java.util.List;
 
 @Repository
 public interface ParkingSpotRepository extends JpaRepository<ParkingSpot, String> {
@@ -13,4 +14,6 @@ public interface ParkingSpotRepository extends JpaRepository<ParkingSpot, String
     ParkingSpot findByVehicleRegistrationNumber(String registrationNumber);
     Page<ParkingSpot> findByVehicleColor(String color, Pageable pageable);
     Page<ParkingSpot> findByVehicleType(VehicleType type, Pageable pageable);
+    List<ParkingSpot> findByParkingLotIdAndParkingSpotTypeNameAndAndParkingSpotStatusNameOrderByNumberAscParkingFloorNumberAsc(
+            Long parkingLotId, String parkingSpotTypeName, String parkingStatusName, Pageable pageable);
 }

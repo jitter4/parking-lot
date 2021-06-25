@@ -3,7 +3,7 @@ package demo.design.level.low.parkinglot.exceptions.handlers;
 import demo.design.level.low.parkinglot.api.dto.response.core.CoreResponse;
 import demo.design.level.low.parkinglot.api.dto.response.util.ResponseUtils;
 import demo.design.level.low.parkinglot.services.authentication.constants.ResponseConstants;
-import demo.design.level.low.parkinglot.services.parkinglot.core.exceptions.CustomParkingLotException;
+import demo.design.level.low.parkinglot.services.parkinglot.core.exceptions.ParkingLotException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -41,10 +41,10 @@ public class GlobalExeptionHandler {
                 HttpStatus.BAD_REQUEST);
     }
 
-    @ExceptionHandler(value = { CustomParkingLotException.class })
-    public ResponseEntity<CoreResponse> handleDMSCustomException(final CustomParkingLotException parkingLotCustomException) {
+    @ExceptionHandler(value = { ParkingLotException.class })
+    public ResponseEntity<CoreResponse> handleParkingLotException(final ParkingLotException exception) {
         return new ResponseEntity<>(
-                ResponseUtils.errorResponse(parkingLotCustomException.getMessage(), parkingLotCustomException.getStatus()),
-                HttpStatus.valueOf(parkingLotCustomException.getStatus()));
+                ResponseUtils.errorResponse(exception.getMessage(), exception.getApiResponseStatus() != null ? exception.getApiResponseStatus() : exception.getStatus()),
+                HttpStatus.valueOf(exception.getStatus()));
     }
 }

@@ -21,9 +21,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import java.util.HashSet;
+import java.util.Collection;
 import java.util.Objects;
-import java.util.Set;
 
 @Data
 @NoArgsConstructor
@@ -33,45 +32,49 @@ import java.util.Set;
 @Table(name = "parking_lots")
 public class ParkingLot extends BaseAbstractEntity {
 
-    @Column(name = "name", nullable = false, unique = true)
-    private String name;
+    @Column(unique = true, nullable = false)
+    private String code;
 
-    private String displayName;
+    private String name;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "address_id", referencedColumnName = "id")
     private Address address;
 
     @OneToMany(mappedBy = "parkingLot", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private Set<ParkingFloor> parkingFloors;
+    private Collection<ParkingFloor> parkingFloors;
 
     @OneToMany(mappedBy = "parkingLot", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private Set<ParkingSpot> parkingSpots;
+    private Collection<ParkingSpot> parkingSpots;
 
     @OneToMany(mappedBy = "parkingLot", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private Set<ParkingRate> parkingRates;
+    private Collection<ParkingRate> parkingRates;
 
     @OneToMany(mappedBy = "parkingLot", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private Set<ParkingSpotCount> parkingSpotCounts;
+    private Collection<ParkingSpotCount> parkingSpotCounts;
 
     @OneToOne
     @JoinColumn(name = "parking_display_board_id", referencedColumnName = "id")
     private ParkingDisplayBoard parkingDisplayBoard;
 
     @OneToMany(mappedBy = "parkingLot", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private Set<EntrancePanel> entrancePanels;
+    private Collection<EntrancePanel> entrancePanels;
 
     @OneToMany(mappedBy = "parkingLot", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private Set<ExitPanel> exitPanels;
+    private Collection<ExitPanel> exitPanels;
 
     @OneToMany(mappedBy = "parkingLot", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private Set<ParkingTicket> parkingTickets;
+    private Collection<ParkingTicket> parkingTickets;
 
     @OneToMany(mappedBy = "parkingLot", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private Set<ParkingLotAttendent> parkingLotAttendents;
+    private Collection<ParkingLotAttendent> parkingLotAttendents;
 
     @OneToMany(mappedBy = "parkingLot", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private Set<ParkingLotAttendentPortal> parkingLotAttendentPortals;
+    private Collection<ParkingLotAttendentPortal> parkingLotAttendentPortals;
+
+    @OneToMany(mappedBy = "parkingLot", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Collection<VehicleTypeParkingSpotCount> vehicleTypeParkingSpotCounts;
+
 
     @ManyToOne
     @JoinColumn(name = "parking_lot_status_id", nullable = false)
@@ -81,7 +84,7 @@ public class ParkingLot extends BaseAbstractEntity {
     @JoinTable(name = "parking_lot_admins",
             joinColumns = @JoinColumn(name = "parking_lot_id"),
             inverseJoinColumns = @JoinColumn(name = "administrator_id"))
-    private Set<ParkingLotAdministrator> roles = new HashSet<>();
+    private Collection<ParkingLotAdministrator> roles;
 
     @Override
     public boolean equals(Object o) {

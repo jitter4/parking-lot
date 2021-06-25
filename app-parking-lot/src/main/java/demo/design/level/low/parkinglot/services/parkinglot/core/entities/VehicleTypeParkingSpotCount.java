@@ -26,12 +26,16 @@ public class VehicleTypeParkingSpotCount {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "vehicle_id", nullable = false)
-    private Vehicle vehicle;
+    @JoinColumn(name = "vehicle_type_id", nullable = false)
+    private VehicleType vehicleType;
 
     @ManyToOne
-    @JoinColumn(name = "parking_spot_id", nullable = false)
-    private ParkingSpot parkingSpot;
+    @JoinColumn(name = "parking_spot_type_id", nullable = false)
+    private ParkingSpotType parkingSpotType;
+
+    @ManyToOne
+    @JoinColumn(name = "parking_lot_id", nullable = false)
+    private ParkingLot parkingLot;
 
     private int count;
 

@@ -4,7 +4,7 @@ import demo.design.level.low.parkinglot.services.parkinglot.core.api.Card;
 import demo.design.level.low.parkinglot.services.parkinglot.core.api.Cash;
 import demo.design.level.low.parkinglot.services.parkinglot.core.entities.panels.ElectricPanel;
 
-public interface ElectricPanelService {
+public interface IElectricPanelService {
 
     ElectricPanel payForMinutes(ElectricPanel electricPanel, int minutes, Cash cash);
     ElectricPanel payForMinutes(ElectricPanel electricPanel, int minutes, Card card);
